@@ -1,0 +1,105 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+
+}
+
+.navigation-bar {
+  width: 100%;
+  height: 8vh;
+  border-bottom: 1px solid lightgray;
+  display: flex;
+  align-items: center;
+}
+
+#navigation-container {
+  margin-left: 10%;
+}
+
+h1 {
+  font-weight: 400;
+  font-size: 2.4em;
+}
+
+#hero {
+  width: 70%;
+  margin: 0 auto;
+}
+
+#welcome {
+  margin-top: 40px;
+  margin-bottom: 30px;
+  font-weight: 600;
+  font-size: 3.4em;
+  line-height: 1.2em;
+  letter-spacing: -.03em;
+  text-align: center;
+}
+
+#description {
+  letter-spacing: 1px;
+  line-height: 2.6em;
+  font-weight: 600;
+  font-size: 1.1em;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+#wanted {
+  font-size: 36px;
+  text-align: center;
+}
+
+#now {
+  font-weight: 600;
+  font-size: 1.1em;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+#search {
+  font-size: 1.1em;
+  color: gray;
+  text-align: center;
+}
+
+#dynamicContainer {
+  width: 70%;
+  margin: 0 auto;
+}
+
+.messageArea {
+  width: 90%;
+  margin: auto;
+  text-align: center;
+}
+
+
+.message {
+  padding: 10px;
+  margin: 10px;
+  background-color: #e8f9ff;
+}
+#messageCount {
+  float: right;
+}
+
+@media only screen and (max-width: 1024px) {
+  #hero {
+    width: 70%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  #messageCount {
+    margin-right: 20px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  #hero {
+    width: 90%;
+  }
+}

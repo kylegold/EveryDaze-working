@@ -1,0 +1,93 @@
+#messageBox {
+  width: 70%;
+  min-height: 250px;
+  max-height:750px;
+  border: 2px solid  rgba(246, 247, 248, 0.515);
+  box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+  border-radius: 5px;
+  margin: 35px auto 35px auto;
+  position: relative;
+}
+
+#messageInfo {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  margin: 10px;
+}
+#messageInfo h3{
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+}
+#messageInfo h5{
+  font-family: 'Roboto', sans-serif;
+  color: rgb(177, 177, 177)
+}
+#messageContent {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.3em;
+  width: 90%;
+  margin-left: 20px;
+  /* padding-bottom: 20px; */
+  text-align: left;
+  font-weight: 400;
+
+}
+
+#messageBox:hover{
+   box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+#facebookShare {
+  height: 50px;
+  width: 80px;
+  position: absolute;
+  bottom: 20px;
+  right: 25px;
+  filter: grayscale(.8);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#facebookShare button:focus {
+  outline: none;
+}
+
+#facebookShare svg {
+  height: 20px;
+  width: 20px;
+}
+#facebookShare circle {
+  height: 20px;
+  width: 20px;
+}
+#facebookShare button {
+  height: 20px;
+  width: 20px;
+}
+
+@media screen and (max-width: 768px){
+  #messageBox {
+    width: 97%;
+  }
+  #facebookShare {
+    bottom: 0px;
+    width: 100px;
+  }
+  #facebookShare svg {
+    height: 26px;
+    width: 26px;
+  }
+  #facebookShare circle {
+    height: 26px;
+    width: 26px;
+  }
+  #facebookShare button {
+    height: 26px;
+    width: 26px;
+  }
+  #facebookShare .react-share__ShareButton {
+    height: 26px;
+    width: 26px;
+  }
+  
+}
