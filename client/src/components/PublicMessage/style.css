@@ -37,6 +37,41 @@
 #messageBox:hover{
    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
+
+#userReaction {
+  display: flex;
+  justify-content: space-around;
+}
+
+#commentButton {
+  margin-right: 20px;
+  width: 100px;
+}
+
+#likeButton {
+  width: 80px;
+}
+
+.fa {
+  font-size: 24px;
+}
+
+@media screen and (max-width: 768px){
+  #userReaction {
+    position: absolute;
+    left: 20px;
+    bottom: -5px;
+  }
+}
+
+@media screen and (min-width: 769px){
+  #userReaction {
+    position: absolute;
+    left: 20px;
+    bottom: 10px;
+  }
+}
+
 #facebookShare {
   height: 50px;
   width: 80px;
@@ -88,6 +123,84 @@
   #facebookShare .react-share__ShareButton {
     height: 26px;
     width: 26px;
+  }
+  
+}
+
+#questionButton {
+  clear: both;
+  display: block;
+  padding: 5px;
+  margin: 35px auto 20px auto;
+  height: 65px;
+  width: 200px; 
+  background-color: rgba(72,168,238, 0.0);
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  font-size: 1.1em;
+  border: 1px solid #48a9ee;
+  border-radius: 50px;
+  color: rgb(72,168,238);
+}
+
+#questionButton:hover {
+  background-color: rgba(72,168,238, 1);
+  color: white;
+  transition: ease-in .3s;
+
+  }
+#questionButton:focus { 
+  outline:none 
+}
+
+
+#modalTitle {
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+#modalHeader {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  /* margin-bottom: 20px; */
+  float: right;
+}
+
+#closeModal {
+  margin: 0 auto;
+  text-align: center;
+  width: 40px;
+  height: 40px;
+}
+
+#modalBox {
+  width: 100%;
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.ReactModal__Content.ReactModal__Content--after-open {
+  height: 700px;
+}
+@media screen and (max-width: 1024px){
+  #questionButton{
+    width: 200px;
+  }
+
+}
+@media screen and (max-width: 821px){
+ 
+  #questionButton {
+    float:none;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0px;
+    margin-bottom: 30px;
+    width: 200px;
   }
   
 }

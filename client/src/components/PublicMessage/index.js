@@ -9,10 +9,29 @@ import {
   WhatsappShareButton,
   WhatsappIcon
 } from "react-share";
+import Modal from 'react-modal'
+import CommentInput from "../CommentInput"
+
 
 
 const PublicMessage = (props) => {
   console.log(props)
+
+  var subtitle;
+  const [modalIsOpen,setIsOpen] = React.useState(false);
+  function openModal() {
+    setIsOpen(true);
+  }
+ 
+  function afterOpenModal() {
+    // references are now sync'd and can be accessed.
+    subtitle.style.color = '#f00';
+  }
+ 
+  function closeModal(){
+    setIsOpen(false);
+  }
+ 
 
   const handleUpvote = async message => {
     try {
@@ -24,6 +43,18 @@ const PublicMessage = (props) => {
     
   }
   
+  const handleComment = async message => {
+    console.log(message._id, message.comments)
+    openModal()
+    // try {
+    //   const {data} = await axios.put(`/message/messages/comment/${message._id}`);
+    //   console.log('updatd msg==>>', data)
+    // } catch (err) {
+    //   console.log('err upvoting==>>', err)
+    // }
+    
+  }
+
   return (
     
     <div id="publicMessages">
@@ -39,8 +70,9 @@ const PublicMessage = (props) => {
     <br />
     <br />
     <div id="userReaction">
-      <button id="commentButton" onClick={() => {console.log(message._id, message.comments)}}>Comment</button>
-      <button id="likeButton" onClick={() => handleUpvote(message)}>Like</button>
+      <button id="commentButton" onClick={() => {handleComment(message)}}>Comment</button>
+      <button id="likeButton" className="fa" onClick={() => handleUpvote(message)}>&#xf25b; <span>{message.upvotes}</span></button>
+      {/* <button id="upvoteCount">{message.upvotes}</button> */}
     </div>
     <div id="facebookShare">
     <WhatsappShareButton
@@ -63,6 +95,24 @@ const PublicMessage = (props) => {
                 hashtag="#theeverydaze">
                  <FacebookIcon size={20} round={true}/>
               </FacebookShareButton></div>
+              <Modal
+          isOpen={modalIsOpen}
+          onAfterOpen={afterOpenModal}
+          onRequestClose={closeModal}
+          // style={customStyles}
+          contentLabel="Example Modal"
+        >
+
+          <div id="modalHeader">
+          <button id="closeModal" onClick={closeModal}>X</button>
+          </div>
+          <div id="modalBox">
+          <h2 id="modalTitle" ref={_subtitle => (subtitle = _subtitle)}>{message.message}</h2>
+          < CommentInput />
+          </div>
+          
+         
+        </Modal>
     </div>) : null}
     
   </div>

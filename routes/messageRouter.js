@@ -50,12 +50,22 @@ Router.post("/messages", async (req, res) => {
 Router.put("/messages/upvote/:id", limiter, async (req, res) => {
   try {
     console.log('paramds==>>', req.params)
-    const message = await db.Message.findByIdAndUpdate(req.params.id, {$inc: {upvotes: 1}}, {new: true});
+    const message = await db.Message.findByIdAndUpdate(req.params.id, {$inc: {upvotes: 1}}, {new: true, upsert: true});
     res.status(201).send(message);
   }catch (error) {
     res.status(500).send(error);
   }
 })
+
+// Router.put("/messages/comment/:id", async ({ body, params }, res) => {
+//   try {
+//     console.log('params==>>', req.params)
+//     const message = await db.Message.findByIdAndUpdate(params.id, {$push: {comments: body}}, {new: true, upsert: true});
+//     res.status(201).send(message);
+//   }catch (error) {
+//     res.status(500).send(error);
+//   }
+// })
 
 
 module.exports = Router;
