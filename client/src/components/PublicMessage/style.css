@@ -1,7 +1,10 @@
+#modalBox {
+  width: 100%;
+  
+}
 #messageBox {
   width: 70%;
   min-height: 250px;
-  max-height:750px;
   border: 2px solid  rgba(246, 247, 248, 0.515);
   box-shadow: 0 1px 5px rgba(0,0,0,0.1);
   border-radius: 5px;
@@ -100,6 +103,17 @@
   width: 20px;
 }
 
+
+@media screen and (max-width: 350px){
+  #messageBox {
+    min-height: 400px;
+  }
+  #userReaction {
+    bottom: 50px;
+    left: 50px;
+  }
+
+}
 @media screen and (max-width: 768px){
   #messageBox {
     width: 97%;
@@ -153,38 +167,25 @@
   outline:none 
 }
 
-
 #modalTitle {
-  text-align: center;
+  /* text-align: center; */
   margin-top: 30px;
-  margin-bottom: 30px;
+  
 }
 
-#modalHeader {
-  height: 40px;
-  display: flex;
-  align-items: center;
-  /* margin-bottom: 20px; */
-  float: right;
-}
 
-#closeModal {
-  margin: 0 auto;
-  text-align: center;
-  width: 40px;
-  height: 40px;
-}
 
 #modalBox {
   width: 100%;
-  height: 60vh;
+  height: 100vh;
+  padding-top: 100px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 .ReactModal__Content.ReactModal__Content--after-open {
-  height: 700px;
+  height: 80vh;
 }
 @media screen and (max-width: 1024px){
   #questionButton{

@@ -20,9 +20,7 @@ const messageSchema = new Schema({
 		trim: true
 	},
 	comments: [{
-		type: String,
-		required: false,
-		trim: true 
+    msg: {type: String, required: true, trim: true, min: 1}
 	}],
 	upvotes: {
 		type: Number,

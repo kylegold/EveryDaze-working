@@ -15,7 +15,7 @@ import CommentInput from "../CommentInput"
 
 
 const PublicMessage = (props) => {
-  console.log(props)
+  // console.log(props)
 
   var subtitle;
   const [modalIsOpen,setIsOpen] = React.useState(false);
@@ -25,7 +25,7 @@ const PublicMessage = (props) => {
  
   function afterOpenModal() {
     // references are now sync'd and can be accessed.
-    subtitle.style.color = '#f00';
+    // subtitle.style.color = '#f00';
   }
  
   function closeModal(){
@@ -42,10 +42,30 @@ const PublicMessage = (props) => {
     }
     
   }
+  let messageObject = "";
   
   const handleComment = async message => {
-    console.log(message._id, message.comments)
+    // console.log("message ID: ", message._id, "comments: ", message.comments, "message: ",message.message, "upvotes: ", message.upvotes)
+    const editMessage = {
+      "message_id": message._id,
+      "message_content": message.message,
+      "message_comments": message.comments,
+      "message_upvotes": message.upvotes
+    }
+    // const message_id = message._id;
+    // const message_message = message.message;
+    // const message_comments = message.comments;
+    // const message_upvotes = message.upvotes;
+    // setter
+    // localStorage.setItem('messageId', message_id);
+    // localStorage.setItem('messageMessage', message_message);
+    // localStorage.setItem('messageComments', message_comments);
+    // localStorage.setItem('messageUpvotes', message_upvotes);
+    localStorage.setItem('messageObject', JSON.stringify(editMessage));
     openModal()
+    const messageString = localStorage.getItem('messageObject');
+    messageObject = JSON.parse(messageString)
+    console.log(messageObject)
     // try {
     //   const {data} = await axios.put(`/message/messages/comment/${message._id}`);
     //   console.log('updatd msg==>>', data)
@@ -71,7 +91,7 @@ const PublicMessage = (props) => {
     <br />
     <div id="userReaction">
       <button id="commentButton" onClick={() => {handleComment(message)}}>Comment</button>
-      <button id="likeButton" className="fa" onClick={() => handleUpvote(message)}>&#xf25b; <span>{message.upvotes}</span></button>
+      <button id="likeButton" className="fa" onClick={() => handleUpvote(message)}>&#xf25b; <span> {message.upvotes}</span></button>
       {/* <button id="upvoteCount">{message.upvotes}</button> */}
     </div>
     <div id="facebookShare">
@@ -99,16 +119,19 @@ const PublicMessage = (props) => {
           isOpen={modalIsOpen}
           onAfterOpen={afterOpenModal}
           onRequestClose={closeModal}
+          scrollable={true}
+          messageProp={messageObject}
           // style={customStyles}
-          contentLabel="Example Modal"
-        >
+          contentLabel="Comment Modal"
 
-          <div id="modalHeader">
+        >
+          
+          {/* <div id="modalHeader">
           <button id="closeModal" onClick={closeModal}>X</button>
-          </div>
+        
+          </div> */}
           <div id="modalBox">
-          <h2 id="modalTitle" ref={_subtitle => (subtitle = _subtitle)}>{message.message}</h2>
-          < CommentInput />
+          < CommentInput closeModal={closeModal} />
           </div>
           
          

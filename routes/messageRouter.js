@@ -57,13 +57,57 @@ Router.put("/messages/upvote/:id", limiter, async (req, res) => {
   }
 })
 
-// Router.put("/messages/comment/:id", async ({ body, params }, res) => {
+
+
+
+// const courseWithID = await Course.findById(req.params.id);
+// const course = {
+//   "course_code": courseWithID.course_code, 
+//   "course_title": courseWithID.course_title
+// };
+// const userID = req.user.id;
+
+// await User.findByIdAndUpdate(userID, 
+//   {
+//     "$push": { "courses": course }
+//   }, 
+//   {new: true, runValidators: true, useFindAndModify: false}
+// )
+
+// Router.put('/workouts/:_id', function(req, res){
+
+//   db.Workout.findByIdAndUpdate(req.params._id, {$push: {"exercises": req.body}}, {"new": true, "upsert": true, "safe": true}, (err, data) => {
+//     if(data){
+//     console.log(data)
+//     console.log(req.params._id)
+//     console.log(req.body)
+//     res.status(200).json(data)
+  
+// }else {res.json(err)}
+
+
+Router.put("/messages/comment/:_id", ({ body, params }, res) => {
+  console.log(body, params);
+  
+    console.log('params==>>', params)
+    db.Message.findByIdAndUpdate(params._id, {$push: {"comments": body}}, {"new": true, "upsert": true, "safe": true}, (err, message)=>{
+   if(message){
+    res.status(200).json(message);
+   }else{res.json(err)} 
+    });
+    
+  
+  })
+
+
+// Router.put("/messages/comment/:_id", async ({ body, params }, res) => {
+//   console.log(body, params);
 //   try {
 //     console.log('params==>>', req.params)
-//     const message = await db.Message.findByIdAndUpdate(params.id, {$push: {comments: body}}, {new: true, upsert: true});
-//     res.status(201).send(message);
+//     const message = await db.Message.findByIdAndUpdate(req.params._id, {$push: {"comments": body}}, {"new": true, "upsert": true, "safe": true});
+//     res.status(200).json(message);
 //   }catch (error) {
-//     res.status(500).send(error);
+//     res.status(400).send(error);
 //   }
 // })
 

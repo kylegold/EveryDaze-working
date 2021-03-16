@@ -15,12 +15,12 @@ const Home = () => {
     .then(res => {
       if (res.data) {
       const messages = res.data;
-      console.log(messages.reverse())
+      // console.log(messages.reverse())
       setMessageState(messages.reverse())
       setMessageCount(messages.length)
       // setRandomMessage(messages[Math.floor(Math.random()*messages.length)].message)
       // console.log(randomMessage)
-      console.log(messages)
+      // console.log(messages)
       }
     })
     .catch(error => {

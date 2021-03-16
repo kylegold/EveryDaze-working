@@ -2,7 +2,6 @@ form {
   /* border: 1px solid rgba(246, 247, 248, 1); */
   width: 70%;
   margin: 0 auto;
-  
 }
 textarea {
   width: 60%;
@@ -86,6 +85,43 @@ form p {
   margin-bottom: 15px;
   font-size: 1.2em;
 }
+
+#publicComment {
+  padding: 5px;
+}
+
+#commentBox {
+  width: 70%;
+  min-height: 40px;
+  max-height:200px;
+  border: 2px solid  rgba(246, 247, 248, 0.515);
+  box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+  border-radius: 5px;
+  margin: 0px auto 0px auto;
+  padding: 5px 20px 5px 20px;
+  position: relative;
+}
+#commentForm {
+  position: relative;
+  z-index: 1;
+}
+#modalHeader {
+  height: 40px;
+  position: fixed;
+  right: 25px;
+  top: 25px;
+}
+
+#closeModal {
+  margin: 0 auto;
+  text-align: center;
+  width: 40px;
+  height: 40px;
+}
+#modalTitle {
+  font-size: 2rem;
+  text-align: left;
+}
 @media screen and (max-width: 1024px){
   .questionButton{
     width: 20%;
@@ -110,9 +146,11 @@ form p {
     margin-left: auto;
     margin-right: auto;
     margin-top: 0px;
-    margin-bottom: 30px;
+    /* margin-bottom: 30px; */
     width: 65%;
   }
-  
+  #commentBox {
+    width: 95%;
+  }
 }
 
